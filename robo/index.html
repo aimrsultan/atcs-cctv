@@ -1,0 +1,1145 @@
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+
+  const canonicalUrl = path === "/"
+  ? url.origin + "/"
+  : url.origin + path;
+  
+    const sitename = "Robopragma";
+    const siteTitle = "Robopragma Memberikan Kemudahan Bermain Mr Ferdy";
+    const siteDesc = "Robopragma Modern memberikan kecerahan buat yang sering mengalami kekalahan hingga mencapai kemaksimalan yang tak terhingga.";
+	
+	const affLink = "https://slotheylink.eu.org/go";
+    const logo = "https://cdn-my.pages.dev/img/rbpg.webp";
+    const banner = "https://cdn-my.pages.dev/img/rbpg.webp";
+    const favicon = "https://cdn-my.pages.dev/img/favrbpg.png";
+
+
+    // KONTEN HOME & AMP
+    const data = {
+      title: siteTitle,
+      desc: siteDesc,
+      content: `      
+
+
+
+
+	  `
+    };
+
+    // AMP
+    if (path === "/amp") {
+      return new Response(`<!doctype html>
+<html amp lang="id">
+<head>
+<meta charset="utf-8">
+<title>${data.title}</title>
+<meta name="description" content="${data.desc}">
+<link rel="canonical" href="${url.origin}/">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<style amp-boilerplate>
+    body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+    </style>
+  </noscript>
+  <style amp-custom>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:#0f172a;color:#fff;line-height:1.6}.container{max-width:1100px;margin:auto;padding:20px}.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}.hero-box{width:100%;max-width:700px;padding:40px 24px;border:1px solid rgb(255 255 255 / .1);border-radius:24px;background:rgb(255 255 255 / .04);backdrop-filter:blur(10px)}h1{font-size:42px;line-height:1.2;margin-bottom:18px}p{color:#cbd5e1;font-size:16px;margin-bottom:28px}.btn{display:inline-block;padding:14px 28px;border-radius:999px;background:#22c55e;color:#fff;text-decoration:none;font-weight:700;transition:.3s}.btn:hover{background:#16a34a}.footer{text-align:center;padding:40px 20px;color:#94a3b8;font-size:14px}@media (max-width:768px){h1{font-size:30px}.hero-box{padding:30px 20px}}
+  </style>
+</head>
+<body>
+<section class=hero><div class=container><div class=hero-box><h1>${data.title}</h1><p>${data.desc}</p><a class=btn href=${url.origin}>Mulai Sekarang</a></div></div></section><footer class=footer>© 2026 SEO EETC</footer>
+</body>
+</html>`, {
+        headers: {
+          "content-type": "text/html;charset=UTF-8"
+        }
+      });
+    }
+
+    // SITEMAP
+    if (path === "/sitemap.xml") {
+      return new Response(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>${url.origin}/</loc></url>
+<url><loc>${url.origin}/about</loc></url>
+<url><loc>${url.origin}/privacy</loc></url>
+<url><loc>${url.origin}/disclaimer</loc></url>
+<url><loc>${url.origin}/contact</loc></url>
+<url><loc>${url.origin}/amp</loc></url>
+</urlset>`, {
+        headers: {
+          "content-type": "application/xml;charset=UTF-8"
+        }
+      });
+    }
+
+    // ROBOTS
+    if (path === "/robots.txt") {
+      return new Response(`User-agent: *
+Allow: /
+
+Sitemap: ${url.origin}/sitemap.xml`, {
+        headers: {
+          "content-type": "text/plain;charset=UTF-8"
+        }
+      });
+    }
+
+    const pages = {
+      "/": {
+        title: data.title,
+        desc: data.desc,
+        content: data.content
+      },
+"/about": {
+title: "Tentang Robopragma | Informasi Teknologi, Aplikasi, dan Panduan Digital",
+desc: "Mengenal Robopragma sebagai platform informasi digital yang membahas teknologi, aplikasi, internet, serta berbagai panduan yang mudah dipahami.",
+
+content: `
+
+<main class="page-wrap">
+<h1>Tentang Robopragma</h1>
+
+<p>
+Robopragma adalah platform informasi digital yang menyediakan berbagai pembahasan seputar teknologi, aplikasi, internet, tutorial, layanan online, serta perkembangan dunia digital yang terus mengalami perubahan dari waktu ke waktu. Website ini dibuat untuk membantu pengguna memperoleh informasi yang lebih mudah dipahami, terstruktur, dan dapat diakses dari berbagai perangkat.
+</p>
+
+<p>
+Di era digital saat ini, informasi tersedia dalam jumlah yang sangat besar. Namun, tidak semua informasi disajikan dengan cara yang mudah dipahami oleh pengguna umum. Karena itu, Robopragma hadir sebagai sumber referensi yang berupaya menyajikan informasi secara lebih ringkas, jelas, dan relevan sehingga pengunjung dapat menemukan jawaban yang dibutuhkan tanpa harus menelusuri banyak sumber berbeda.
+</p>
+
+<h2>Fokus Utama Robopragma</h2>
+
+<p>
+Website ini berfokus pada berbagai topik yang berkaitan dengan teknologi digital dan kebutuhan pengguna internet modern. Pembahasan dapat mencakup aplikasi mobile, layanan berbasis web, perangkat lunak, fitur digital terbaru, panduan penggunaan, pembaruan sistem, hingga berbagai informasi yang membantu pengguna memahami perkembangan teknologi dengan lebih mudah.
+</p>
+
+<p>
+Selain menyajikan informasi umum, Robopragma juga dapat menghadirkan tutorial langkah demi langkah, tips penggunaan fitur tertentu, ulasan aplikasi, referensi digital, serta berbagai panduan yang dirancang untuk membantu pengguna menyelesaikan masalah atau memperoleh pemahaman yang lebih baik mengenai suatu layanan maupun teknologi.
+</p>
+
+<h2>Tujuan dan Visi Website</h2>
+
+<p>
+Tujuan utama Robopragma adalah menyediakan sumber informasi yang dapat dijadikan referensi tambahan bagi pengguna yang mencari penjelasan mengenai teknologi, aplikasi, dan layanan digital. Kami percaya bahwa informasi yang mudah dipahami dapat membantu pengguna mengambil keputusan yang lebih baik saat menggunakan produk maupun layanan berbasis teknologi.
+</p>
+
+<p>
+Visi kami adalah menghadirkan platform informasi yang terus berkembang mengikuti perubahan teknologi, sehingga pengunjung dapat memperoleh informasi yang relevan, bermanfaat, dan sesuai dengan kebutuhan mereka.
+</p>
+
+<h2>Konten yang Terus Diperbarui</h2>
+
+<p>
+Perkembangan teknologi berlangsung sangat cepat. Aplikasi dapat mengalami perubahan fitur, layanan digital dapat memperbarui kebijakan, dan berbagai platform online dapat menghadirkan pembaruan dalam waktu singkat. Oleh karena itu, Robopragma berupaya melakukan pembaruan konten secara berkala agar informasi yang tersedia tetap relevan dan sesuai dengan perkembangan terbaru.
+</p>
+
+<p>
+Meski demikian, informasi yang dipublikasikan dapat berubah sewaktu-waktu mengikuti perkembangan sumber asli atau perubahan layanan yang dibahas. Pengunjung disarankan untuk selalu melakukan verifikasi tambahan apabila informasi digunakan untuk kebutuhan yang memerlukan tingkat akurasi tinggi.
+</p>
+
+<h2>Mengutamakan Pengalaman Pengguna</h2>
+
+<p>
+Selain kualitas informasi, kenyamanan pengunjung juga menjadi perhatian utama dalam pengembangan website ini. Struktur navigasi dirancang agar mudah digunakan, halaman dapat diakses melalui perangkat desktop maupun mobile, serta konten disusun dengan format yang memudahkan pembaca menemukan informasi yang dibutuhkan.
+</p>
+
+<p>
+Kami memahami bahwa kecepatan akses dan kemudahan penggunaan merupakan bagian penting dari pengalaman pengguna. Karena itu, berbagai penyesuaian terus dilakukan untuk menjaga performa website agar tetap nyaman digunakan.
+</p>
+
+<h2>Sumber dan Referensi Informasi</h2>
+
+<p>
+Informasi yang tersedia di Robopragma dapat berasal dari berbagai sumber yang dianggap relevan, termasuk dokumentasi resmi, informasi publik, pengalaman penggunaan, referensi teknologi, serta sumber lain yang berkaitan dengan topik yang sedang dibahas. Setiap konten disusun dengan tujuan memberikan gambaran yang lebih mudah dipahami oleh pembaca.
+</p>
+
+<p>
+Kami berusaha menjaga kualitas dan keakuratan informasi yang dipublikasikan. Namun, mengingat perkembangan teknologi yang sangat dinamis, tidak semua informasi dapat dijamin selalu terbaru setiap saat. Oleh karena itu, pengguna tetap disarankan untuk memeriksa sumber resmi terkait apabila membutuhkan informasi yang paling mutakhir.
+</p>
+
+<h2>Komitmen Pengembangan Jangka Panjang</h2>
+
+<p>
+Robopragma akan terus berkembang melalui penambahan konten baru, pembaruan informasi yang telah ada, serta peningkatan fitur yang bertujuan memberikan pengalaman yang lebih baik bagi pengunjung. Pengembangan tersebut dilakukan secara bertahap mengikuti kebutuhan pengguna dan perkembangan teknologi digital.
+</p>
+
+<p>
+Kami berharap website ini dapat menjadi salah satu referensi yang bermanfaat bagi siapa saja yang ingin mempelajari teknologi, memahami aplikasi digital, menemukan tutorial, maupun mengikuti perkembangan dunia internet dan layanan online.
+</p>
+
+<h2>Informasi Lainnya</h2>
+
+<p>
+Untuk mengetahui bagaimana data pengguna dikelola saat mengakses website ini, silakan membaca halaman <a href="/privacy">Kebijakan Privasi</a>. Informasi mengenai batas tanggung jawab penggunaan konten tersedia pada halaman <a href="/disclaimer">Disclaimer</a>. Jika memiliki pertanyaan, masukan, atau ingin menghubungi kami, silakan kunjungi <a href="/contact">halaman Kontak</a>.
+</p>
+
+</main>`
+},
+
+"/privacy": {
+title: "Kebijakan Privasi Robopragma | Perlindungan Informasi Pengguna",
+desc: "Pelajari bagaimana Robopragma mengelola, menggunakan, dan melindungi informasi pengguna saat mengakses website.",
+
+content: `
+
+<!-- HEADER -->
+<header class="page-header">
+    <h1>Privacy Policy</h1>
+    <p>Last updated: July 2026</p>
+</header>
+
+<!-- CONTENT -->
+<main class="content-wrap">
+
+    <a href="/" class="back-link">&larr; Back to Home</a>
+
+    <p>This Privacy Policy describes how <strong>PT Akshaya Mulia Asha</strong> ("Company", "we", "us", or "our"), operating the <strong>Sultan AI</strong> platform at <a href="https://sultanai.id">sultanai.id</a>, collects, uses, stores, and protects your personal information when you use our services.</p>
+
+    <p>By accessing or using Sultan AI, you agree to the practices described in this policy. If you do not agree, please discontinue use of our services.</p>
+
+    <p>The Sultan AI platform is also accessible through our mobile application, <strong>Sultan Inbox</strong> (bundle identifier: <code>com.sultanagent.inbox</code>), available on iOS and Android. This mobile app serves as a companion client for managing customer conversations. All data handling described in this Privacy Policy applies equally to our web platform and mobile application.</p>
+
+    <!-- 1 -->
+    <h2>1. Information We Collect</h2>
+
+    <h3>1.1 Information You Provide</h3>
+    <ul>
+        <li><strong>Account information:</strong> business name, contact person name, email address, phone number, and business category when you register for Sultan AI.</li>
+        <li><strong>Business data:</strong> product catalogs, pricing information, FAQs, and training materials you upload to configure your AI chatbot.</li>
+        <li><strong>Payment information:</strong> billing details processed through our payment providers. We do not store full payment card numbers on our servers.</li>
+        <li><strong>Support inquiries:</strong> messages, emails, and WhatsApp conversations you send to our support team.</li>
+    </ul>
+
+    <h3>1.2 Information Collected Automatically</h3>
+    <ul>
+        <li><strong>Conversation data:</strong> messages exchanged between your customers and your Sultan AI chatbot across WhatsApp, Instagram DM, TikTok DM, and Shopee Chat.</li>
+        <li><strong>Usage analytics:</strong> chatbot response times, conversation volumes, resolution rates, and feature usage patterns.</li>
+        <li><strong>Device and browser data:</strong> IP address, browser type, operating system, device identifiers, and referral URLs when you access the Sultan AI dashboard.</li>
+        <li><strong>Cookies and similar technologies:</strong> as described in Section 10 below.</li>
+    </ul>
+
+    <h3>1.3 Information from Third Parties</h3>
+    <ul>
+        <li><strong>Messaging platforms:</strong> user profile information (name, profile picture, phone number) provided by WhatsApp Business API, Meta (Instagram), TikTok, and Shopee when customers initiate conversations.</li>
+        <li><strong>Google services:</strong> authentication data if you sign in via Google, and analytics data from Google Analytics.</li>
+    </ul>
+
+    <!-- 2 -->
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the collected information to:</p>
+    <ul>
+        <li>Provide, operate, and maintain the Sultan AI chatbot platform.</li>
+        <li>Train and improve your AI chatbot's responses based on your business data and conversation history.</li>
+        <li>Process transactions and send related billing communications.</li>
+        <li>Respond to your support requests and provide customer service.</li>
+        <li>Analyze usage patterns to improve platform performance, features, and user experience.</li>
+        <li>Send service updates, security alerts, and administrative notices.</li>
+        <li>Comply with legal obligations and enforce our terms of service.</li>
+        <li>Detect, prevent, and address fraud, abuse, or technical issues.</li>
+    </ul>
+    <p>We do <strong>not</strong> sell your personal data or your customers' conversation data to third parties for advertising purposes.</p>
+
+    <!-- 3 -->
+    <h2>3. Data Storage and Security</h2>
+
+    <h3>3.1 Where We Store Data</h3>
+    <p>Your data is stored on secure cloud infrastructure provided by Google Cloud Platform, with primary servers located in the Asia-Southeast region (Jakarta, Indonesia). Conversation data and AI training models are processed and stored using Google Firestore and Google Cloud Functions.</p>
+
+    <h3>3.2 How We Protect Data</h3>
+    <ul>
+        <li>Data in transit is encrypted using TLS 1.2 or higher.</li>
+        <li>Data at rest is encrypted using AES-256 encryption.</li>
+        <li>Access to production systems is restricted to authorized personnel with multi-factor authentication.</li>
+        <li>Regular security audits and vulnerability assessments are conducted.</li>
+        <li>Automated backup procedures ensure data durability and disaster recovery.</li>
+    </ul>
+
+    <h3>3.3 Data Retention</h3>
+    <p>We retain your data for as long as your account is active or as needed to provide our services. Conversation logs are retained for a maximum of <strong>24 months</strong> unless a longer retention period is required by law or requested by you. Upon account termination, we will delete or anonymize your data within 90 days, except where retention is required for legal or legitimate business purposes.</p>
+
+    <!-- 4 -->
+    <h2>4. Data Stored on Your Device</h2>
+    <p>When you use the Sultan Inbox mobile app, certain data is stored locally on your device to enable core functionality:</p>
+    <ul>
+        <li><strong>Authentication session token</strong> — stored in platform-native secure storage (iOS Keychain / Android Keystore), encrypted at rest by the operating system. Deleted on logout.</li>
+        <li><strong>Push notification device token</strong> — stored in secure storage and registered with our server to deliver real-time alerts. Unregistered from server and deleted from device on logout.</li>
+        <li><strong>Selected client identifier</strong> — stored in secure storage for session continuity between app launches. Deleted on logout.</li>
+        <li><strong>Login credentials (optional)</strong> — if you enable "Remember Me," your username and password are stored in secure storage. You may clear them by disabling "Remember Me" or logging out.</li>
+        <li><strong>Theme preference</strong> — your light/dark mode selection is stored in local app storage and is not linked to your identity.</li>
+    </ul>
+    <p>All secure storage data is permanently deleted when you log out of the application.</p>
+
+    <!-- 5 -->
+    <h2>5. Device Permissions</h2>
+    <p>With your permission, the Sultan Inbox app may access the following device features, only when you actively use them:</p>
+    <ul>
+        <li><strong>Photo library</strong> — to attach an existing image or video to a conversation.</li>
+        <li><strong>Files / documents</strong> — to attach a document (such as a PDF or Office file) to a conversation.</li>
+        <li><strong>Push notifications</strong> — to alert you about new messages.</li>
+    </ul>
+    <p>The app does not access your photos or files in the background or without your action. It does not use the camera to capture photos and does not record audio via the microphone. You can revoke any of these permissions at any time in your device settings.</p>
+
+    <h3>5.1 Push Notifications</h3>
+    <p>The Sultan Inbox app requests your permission to send push notifications. If granted:</p>
+    <ul>
+        <li>A device push token is generated by your device's operating system and sent to our server.</li>
+        <li>The token is associated with your user account and selected business client.</li>
+        <li>We use this token solely to deliver escalation alerts when customer conversations require human attention.</li>
+        <li>The token is unregistered from our server when you log out.</li>
+        <li>You may disable notifications at any time via your device's system settings (iOS: Settings &gt; Notifications &gt; Sultan Inbox).</li>
+    </ul>
+
+    <!-- 6 -->
+    <h2>6. Real-Time Data Connections</h2>
+    <p>The Sultan Inbox app maintains encrypted WebSocket connections to deliver real-time conversation updates while the app is in the foreground. All data transmitted through these connections is encrypted via TLS. These connections are terminated when the app moves to the background or you log out.</p>
+
+    <!-- 7 -->
+    <h2>7. Data Linked to Your Identity</h2>
+    <p>The following data types are linked to your identity when you use our service:</p>
+    <ul>
+        <li><strong>Contact information</strong> (name, phone number) — displayed from customer records</li>
+        <li><strong>User identifiers</strong> (session token, user ID)</li>
+        <li><strong>Device identifiers</strong> (push notification token)</li>
+        <li><strong>User content</strong> (customer conversation messages you access)</li>
+    </ul>
+    <p>No data collected by Sultan Inbox is used for advertising or cross-app tracking.</p>
+
+    <!-- 8 -->
+    <h2>8. Third-Party Services and Integrations</h2>
+    <p>Sultan AI integrates with the following third-party platforms to deliver our services. Each platform has its own privacy policy governing the data they process:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Purpose</th>
+                <th>Data Shared</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WhatsApp Business API (Meta)</td>
+                <td>Messaging channel</td>
+                <td>Customer phone numbers, message content</td>
+            </tr>
+            <tr>
+                <td>Instagram Messaging API (Meta)</td>
+                <td>DM channel</td>
+                <td>Customer usernames, message content</td>
+            </tr>
+            <tr>
+                <td>TikTok Business API</td>
+                <td>DM channel</td>
+                <td>Customer usernames, message content</td>
+            </tr>
+            <tr>
+                <td>Shopee Open Platform</td>
+                <td>Chat channel</td>
+                <td>Buyer usernames, message content</td>
+            </tr>
+            <tr>
+                <td>Google Cloud Platform</td>
+                <td>Infrastructure and AI processing</td>
+                <td>All platform data (encrypted)</td>
+            </tr>
+            <tr>
+                <td>Google Analytics</td>
+                <td>Website analytics</td>
+                <td>Anonymized usage data</td>
+            </tr>
+            <tr>
+                <td>Firebase (Google)</td>
+                <td>Authentication and database</td>
+                <td>Account credentials, app data</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>We require all third-party service providers to process data in accordance with applicable data protection laws and our contractual obligations.</p>
+
+    <!-- 9 -->
+    <h2>9. Data Sharing and Disclosure</h2>
+    <p>We may share your information in the following circumstances:</p>
+    <ul>
+        <li><strong>With your consent:</strong> when you explicitly authorize us to share data with a specific party.</li>
+        <li><strong>Service providers:</strong> with trusted vendors who assist in operating our platform, subject to confidentiality agreements.</li>
+        <li><strong>Legal requirements:</strong> when required by Indonesian law, court order, or government regulation.</li>
+        <li><strong>Business transfers:</strong> in connection with a merger, acquisition, or sale of assets, with prior notice to affected users.</li>
+        <li><strong>Safety and fraud prevention:</strong> to protect the rights, property, or safety of Sultan AI, our users, or the public.</li>
+    </ul>
+
+    <!-- 10 -->
+    <h2>10. Cookies and Tracking Technologies</h2>
+    <p>Our website and dashboard use cookies and similar technologies to:</p>
+    <ul>
+        <li><strong>Essential cookies:</strong> maintain your session, remember authentication state, and ensure core functionality.</li>
+        <li><strong>Analytics cookies:</strong> understand how visitors interact with our website using Google Analytics (anonymized IP).</li>
+        <li><strong>Preference cookies:</strong> remember your dashboard settings and language preferences.</li>
+    </ul>
+    <p>You can manage cookie preferences through your browser settings. Disabling essential cookies may affect your ability to use the Sultan AI dashboard. We do not use cookies for third-party advertising or behavioral tracking.</p>
+
+    <!-- 11 -->
+    <h2>11. Your Rights</h2>
+    <p>In accordance with Indonesian data protection regulations (Government Regulation No. 71 of 2019 on Electronic Systems and Transactions, and the Personal Data Protection Law / UU PDP No. 27 of 2022), you have the following rights:</p>
+    <ul>
+        <li><strong>Right of access:</strong> request a copy of the personal data we hold about you.</li>
+        <li><strong>Right to rectification:</strong> request correction of inaccurate or incomplete personal data.</li>
+        <li><strong>Right to deletion:</strong> request deletion of your personal data, subject to legal retention requirements.</li>
+        <li><strong>Right to restrict processing:</strong> request that we limit how we use your data in certain circumstances.</li>
+        <li><strong>Right to data portability:</strong> receive your data in a structured, machine-readable format.</li>
+        <li><strong>Right to withdraw consent:</strong> withdraw previously given consent at any time, without affecting the lawfulness of prior processing.</li>
+        <li><strong>Right to object:</strong> object to processing of your data for specific purposes.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="https://mail.google.com/mail/?view=cm&to=eric@sultanai.id">eric@sultanai.id</a>. We will respond to your request within 14 business days.</p>
+
+    <!-- 12 -->
+    <h2>12. Indonesian Data Protection Compliance</h2>
+    <p>Sultan AI is operated by PT Akshaya Mulia Asha, a company registered in the Republic of Indonesia. We comply with:</p>
+    <ul>
+        <li><strong>UU PDP (Law No. 27 of 2022):</strong> Indonesia's Personal Data Protection Law, governing the collection, processing, and storage of personal data.</li>
+        <li><strong>PP No. 71 of 2019:</strong> Government Regulation on Electronic Systems and Transactions.</li>
+        <li><strong>Permenkominfo No. 20 of 2016:</strong> Regulation on Personal Data Protection in Electronic Systems.</li>
+    </ul>
+    <p>As a data controller, we ensure that all personal data processing is conducted with a lawful basis, whether through consent, contractual necessity, or legitimate interest. We maintain records of processing activities and conduct data protection impact assessments where appropriate.</p>
+
+    <!-- 13 -->
+    <h2>13. Children's Privacy</h2>
+    <p>Sultan AI and the Sultan Inbox app are not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has provided us with personal data, please contact us at <a href="mailto:eric@sultanai.id">eric@sultanai.id</a> and we will promptly delete such information.</p>
+
+    <!-- 14 -->
+    <h2>14. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. We will notify you of material changes by posting the updated policy on this page with a revised "Last updated" date. For significant changes, we will also notify you via email or a notice on the Sultan AI dashboard.</p>
+
+    <!-- 15 -->
+    <h2>15. Account and Data Deletion</h2>
+    <p>Sultan Inbox accounts are issued and managed by the organization you work for. To request deletion of your account or the personal data associated with it, you can:</p>
+    <ul>
+        <li>Contact your organization's administrator to have your account removed, or</li>
+        <li>Email us directly at <a href="https://mail.google.com/mail/?view=cm&to=eric@sultanai.id&su=Data%20Deletion%20Request">eric@sultanai.id</a> with the subject line "Data Deletion Request".</li>
+    </ul>
+    <p>Upon a verified request or account termination, we will delete or anonymize your personal data within 90 days, except where retention is required by law. Conversation data belonging to the organization is handled according to that organization's own retention settings.</p>
+
+    <!-- 16 -->
+    <h2>16. Contact Us</h2>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+    <ul>
+        <li><strong>Company:</strong> PT Akshaya Mulia Asha</li>
+        <li><strong>Product:</strong> Sultan AI</li>
+        <li><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&to=eric@sultanai.id">eric@sultanai.id</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/6281994565275" target="_blank">+62 819-9456-5275</a></li>
+        <li><strong>Website:</strong> <a href="https://sultanai.id" target="_blank">sultanai.id</a></li>
+    </ul>
+
+</main>
+`
+},
+
+
+"/disclaimer": {
+title: "Disclaimer Robopragma | Ketentuan dan Penafian Informasi",
+desc: "Informasi mengenai batas tanggung jawab, penggunaan konten, dan ketentuan yang berlaku di website Robopragma.",
+
+content: `
+
+<main class="page-wrap">
+<h1>Disclaimer</h1>
+
+<p>
+Seluruh informasi yang tersedia di website Robopragma disediakan untuk tujuan informasi dan referensi umum. Kami berupaya menyajikan konten yang akurat serta diperbarui secara berkala, namun tidak memberikan jaminan bahwa seluruh informasi akan selalu lengkap, terbaru, atau sesuai dengan kebutuhan setiap pengguna.
+</p>
+
+<p>
+Konten yang dipublikasikan dapat berupa opini, ulasan, pengalaman penggunaan, maupun informasi yang diperoleh dari berbagai sumber yang dianggap relevan. Oleh karena itu, pengguna disarankan untuk melakukan verifikasi tambahan sebelum mengambil keputusan berdasarkan informasi yang ditemukan di website ini.
+</p>
+
+<p>
+Segala tindakan yang dilakukan berdasarkan informasi dari website ini sepenuhnya menjadi tanggung jawab pengguna. Robopragma tidak bertanggung jawab atas kerugian langsung maupun tidak langsung yang mungkin timbul akibat penggunaan informasi, layanan, atau konten yang tersedia.
+</p>
+
+<p>
+Website ini dapat memuat tautan menuju situs pihak ketiga untuk tujuan referensi tambahan. Kami tidak memiliki kendali atas perubahan isi, kebijakan, maupun layanan yang disediakan oleh situs eksternal tersebut sehingga tidak bertanggung jawab atas informasi yang terdapat di dalamnya.
+</p>
+
+<p>
+Meskipun kami berupaya menjaga website tetap dapat diakses dengan baik, Robopragma tidak menjamin bahwa layanan akan selalu tersedia tanpa gangguan, kesalahan teknis, atau pemeliharaan sistem yang dapat terjadi sewaktu-waktu.
+</p>
+
+<p>
+Dengan mengakses dan menggunakan website ini, pengguna dianggap telah memahami serta menyetujui seluruh isi disclaimer yang berlaku. Apabila tidak setuju dengan ketentuan tersebut, pengguna disarankan untuk menghentikan penggunaan website.
+</p>
+
+<p>
+Untuk informasi lebih lanjut mengenai website ini, silakan mengunjungi halaman <a href="/about">Tentang Kami</a> dan <a href="/privacy">Kebijakan Privasi</a>. Jika memiliki pertanyaan, Anda dapat menghubungi kami melalui <a href="/contact">halaman Kontak</a>.
+</p>
+</main>`
+},
+
+"/contact": {
+title: "Kontak Robopragma | Hubungi Kami",
+desc: "Hubungi Robopragma untuk pertanyaan, masukan, laporan masalah, maupun kebutuhan kerja sama.",
+
+content: `
+
+<main class="page-wrap">
+<h1>Hubungi Kami</h1>
+
+<p>
+Terima kasih telah mengunjungi Robopragma. Kami menghargai setiap masukan, pertanyaan, maupun saran yang diberikan oleh pengunjung sebagai bagian dari upaya meningkatkan kualitas informasi dan layanan yang tersedia di website ini.
+</p>
+
+<p>
+Apabila Anda menemukan informasi yang perlu diperbarui, mengalami kendala saat mengakses website, atau ingin menyampaikan masukan terkait konten yang dipublikasikan, silakan menghubungi kami melalui kontak yang tersedia.
+</p>
+
+<p>
+<strong>Email:</strong> admin@aimrferdy.com<br>
+<strong>Website:</strong> \${url.origin}
+</p>
+
+<p>
+Kami juga terbuka untuk berbagai bentuk kerja sama yang relevan dengan topik teknologi, informasi digital, media online, maupun pengembangan konten yang memberikan manfaat bagi pengguna.
+</p>
+
+<p>
+Setiap pesan yang masuk akan kami tinjau dan tanggapi sesuai prioritas serta ketersediaan waktu. Meskipun kami berusaha memberikan respons secepat mungkin, waktu tanggapan dapat bervariasi tergantung jumlah permintaan yang diterima.
+</p>
+
+<p>
+Sebelum menghubungi kami, Anda dapat membaca halaman <a href="/about">Tentang Kami</a>, <a href="/privacy">Kebijakan Privasi</a>, dan <a href="/disclaimer">Disclaimer</a> untuk memperoleh informasi tambahan mengenai website ini.
+</p>
+
+<p>
+Kami mengucapkan terima kasih atas kunjungan dan kepercayaan Anda kepada Robopragma. Dukungan dari para pengunjung menjadi motivasi untuk terus menghadirkan informasi yang bermanfaat dan mudah diakses.
+</p>
+</main>`
+}
+
+};
+
+
+    const page = pages[path];
+
+    if (!page) {
+      return new Response(`<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>404</title>
+<link rel="icon" href="${favicon}">
+</head>
+<body style="font-family:Arial;text-align:center;padding:50px">
+<h1>404</h1>
+<p>Halaman tidak ditemukan.</p>
+<a href="/">Kembali ke Beranda</a>
+</body>
+</html>`, {
+        status: 404,
+        headers: {
+          "content-type": "text/html;charset=UTF-8"
+        }
+      });
+    }
+
+    return new Response(`
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHM62CH8');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sultan AI — AI yang Dibangun Khusus untuk Bisnis Anda</title>
+<meta name="description" content="AI customer service & sales agent yang dibangun khusus untuk bisnis Anda. Setup gratis, live dalam 3-5 hari. WhatsApp & Instagram.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+.ti{display:inline-flex;width:1em;height:1em;vertical-align:middle}
+.ti svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<style>
+:root{
+  --coral:#FF6647;--coral-hover:#E85535;--coral-soft:#FFF1ED;
+  --blue:#116AF8;--blue-light:#E8F0FE;
+  --green:#22C55E;--green-light:#F0FDF4;
+  --text:#1A1A1A;--text-muted:#6B7280;--text-light:#9CA3AF;
+  --border:#E5E7EB;--surface:#FFFFFF;--surface-2:#FAFAF9;
+  --coral-shadow:rgba(255,102,71,0.25);
+  --head:'GeneralSans',-apple-system,sans-serif;
+  --body:'GeneralSans',-apple-system,sans-serif;
+  --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--surface);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--head);font-weight:600;letter-spacing:-0.02em;line-height:1.08}
+.eyebrow{font-size:12px;letter-spacing:2px;color:var(--blue);text-transform:uppercase;font-weight:600}
+.eyebrow.coral{color:var(--coral)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;padding:14px 26px;border-radius:12px;transition:.25s;cursor:pointer;font-family:var(--body)}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 10px 30px var(--coral-shadow)}
+.btn-coral:hover{background:var(--coral-hover);transform:translateY(-2px);box-shadow:0 14px 38px var(--coral-shadow)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--coral);color:var(--coral)}
+.btn-ghost{color:var(--text);padding:8px 2px;border-bottom:1.5px solid var(--border);border-radius:0}
+.btn-ghost:hover{border-color:var(--coral);color:var(--coral)}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{height:28px}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:14px;color:var(--text-muted);font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{color:var(--coral)!important;border:1.5px solid var(--coral);padding:9px 18px;border-radius:11px}
+.nav-cta:hover{background:var(--coral);color:#fff!important}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+.hero{padding:48px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-160px;right:-120px;width:560px;height:560px;background:radial-gradient(circle,var(--coral-soft),transparent 68%);pointer-events:none;z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,64px);margin:10px 0 18px}
+.hero h1 .accent{color:var(--coral)}
+.hero .lead{font-size:18px;color:var(--text-muted);max-width:450px;margin-bottom:34px;line-height:1.65}
+.hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text-muted);margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.hero-badge i{color:var(--blue)}
+.hero-visual{position:relative;height:480px}
+.hero-photo{position:absolute;inset:0;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(26,26,26,0.14)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.chat-card{position:absolute;bottom:-26px;left:-28px;width:272px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:15px;box-shadow:0 24px 60px rgba(26,26,26,.16)}
+.chat-head{display:flex;align-items:center;gap:9px;padding-bottom:11px;border-bottom:1px solid var(--border);margin-bottom:12px}
+.chat-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.chat-head span{font-size:12px;color:var(--text-muted);font-weight:500}
+.bubble{font-size:12.5px;line-height:1.5;padding:9px 13px;border-radius:13px;margin-bottom:8px;max-width:88%}
+.bubble.in{background:var(--surface-2);border:1px solid var(--border);border-bottom-left-radius:4px}
+.bubble.out{background:rgba(17,106,248,0.85);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.typing{font-size:11px;color:var(--text-light);display:flex;align-items:center;gap:6px}
+.stat-float{position:absolute;top:-20px;right:-22px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:15px 19px;box-shadow:0 18px 50px rgba(26,26,26,.14)}
+.stat-float .num{font-family:var(--head);font-weight:700;font-size:30px;color:var(--coral);line-height:1}
+.stat-float .lbl{font-size:11px;color:var(--text-muted);margin-top:3px}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:72px}.hero-visual{height:380px}}
+
+.trust{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 0;background:var(--surface-2)}
+.trust-in{display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:center}
+.trust-in>span{font-size:12px;letter-spacing:1.5px;color:var(--text-light);text-transform:uppercase;font-weight:500}
+.trust-logos{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:center}
+.trust-logos img{height:26px;filter:grayscale(1);opacity:.35;transition:all .3s}
+.trust-logos img:hover{filter:none;opacity:1}
+
+.sec{padding:98px 0}
+.sec-head{max-width:580px;margin-bottom:54px}
+.sec-head h2{font-size:clamp(30px,3.8vw,44px);margin-top:14px}
+.sec-head p{font-size:16px;color:var(--text-muted);margin-top:14px}
+
+.results{background:var(--surface-2)}
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.qcard{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;transition:.3s;display:flex;flex-direction:column}
+.qcard:hover{border-color:var(--coral);transform:translateY(-4px);box-shadow:0 18px 44px rgba(26,26,26,.08)}
+.qmark{font-family:var(--head);font-size:50px;font-weight:700;color:var(--coral);line-height:.5;height:24px}
+.qtext{font-size:15px;line-height:1.6;color:var(--text);margin:16px 0 20px;flex:1}
+.qmetric{font-family:var(--head);font-weight:700;font-size:26px;color:var(--coral);margin-bottom:18px}
+.qcard:nth-child(2) .qmark,.qcard:nth-child(2) .qmetric,
+.qcard:nth-child(5) .qmark,.qcard:nth-child(5) .qmetric{color:var(--blue)}
+.qauthor{display:flex;align-items:center;gap:11px;padding-top:16px;border-top:1px solid var(--border)}
+.qavatar{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.qav-text{width:40px;height:40px;border-radius:50%;background:var(--coral-soft);color:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0}
+.qauthor .nm{font-size:13.5px;font-weight:600}
+.qauthor .co{font-size:12px;color:var(--text-light)}
+.qauthor .qlogo{height:18px;margin-left:auto;opacity:.35}
+@media(max-width:860px){.quote-grid{grid-template-columns:1fr}}
+
+.crafted-row{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.crafted-photo{position:relative;border-radius:24px;overflow:hidden;height:430px;box-shadow:0 30px 70px rgba(26,26,26,.12)}
+.crafted-photo img{width:100%;height:100%;object-fit:cover}
+.crafted-photo .tag{position:absolute;left:18px;bottom:18px;background:#fff;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:9px;box-shadow:0 10px 30px rgba(26,26,26,.16);font-size:12.5px;font-weight:500}
+.crafted-photo .tag .chat-dot{width:8px;height:8px}
+.craft-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--border)}
+.craft-item:last-child{border-bottom:none}
+.craft-num{font-family:var(--head);font-weight:700;font-size:15px;color:var(--blue);background:var(--blue-light);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.craft-item h3{font-size:17px;margin-bottom:6px}
+.craft-item p{font-size:14px;color:var(--text-muted)}
+@media(max-width:860px){.crafted-row{grid-template-columns:1fr;gap:36px}.crafted-photo{height:300px}}
+
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.cap{padding:30px 26px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:.25s}
+.cap:hover{background:var(--surface-2)}
+.cap .ico{width:46px;height:46px;border-radius:13px;background:var(--coral-soft);color:var(--coral);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:14px}
+.cap:nth-child(3n-1) .ico{background:var(--blue-light);color:var(--blue)}
+.cap h3{font-size:16px;margin-bottom:6px}
+.cap p{font-size:13.5px;color:var(--text-muted)}
+@media(max-width:860px){.cap-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cap-grid{grid-template-columns:1fr}}
+
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.pcard{background:#fff;border:1.5px solid var(--border);border-radius:22px;padding:32px 28px;position:relative}
+.pcard.featured{border-color:var(--blue);box-shadow:0 24px 60px rgba(17,106,248,0.2)}
+.pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:11px;letter-spacing:1px;padding:6px 16px;border-radius:20px;text-transform:uppercase;font-weight:600}
+.pname{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.pprice{font-family:var(--head);font-weight:700;font-size:44px;margin:12px 0 2px}
+.pprice small{font-size:15px;color:var(--text-light);font-family:var(--body);font-weight:500}
+.pnote{font-size:12.5px;color:var(--coral);margin-bottom:24px;font-weight:500}
+.pfeat{list-style:none;margin-bottom:28px}
+.pfeat li{font-size:13.5px;color:var(--text-muted);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--border)}
+.pfeat li i{position:absolute;left:0;top:10px;color:var(--green);font-size:16px}
+.pcard .btn{width:100%;justify-content:center}
+@media(max-width:860px){.price-grid{grid-template-columns:1fr}}
+
+.faq-sec{padding:98px 0;background:var(--surface)}
+.faq-list{max-width:680px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;padding:20px 0;font-size:15px;font-weight:600;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--body);color:var(--text)}
+.faq-q::after{content:'+';font-size:20px;color:var(--text-muted);transition:transform .2s}
+.faq-q.open::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s}
+.faq-a p{padding:0 0 20px;font-size:14px;color:var(--text-muted);line-height:1.8}
+
+.cta{position:relative;overflow:hidden;text-align:center;padding:108px 0;background:var(--coral)}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;mix-blend-mode:luminosity}
+.cta-in{position:relative;z-index:1;color:#fff}
+.cta .eyebrow{color:rgba(255,255,255,0.8)}
+.cta h2{font-size:clamp(32px,4.6vw,52px);max-width:660px;margin:18px auto 20px;color:#fff}
+.cta p{color:rgba(255,255,255,0.9);margin-bottom:34px;font-size:17px}
+.cta .btn-white{background:#fff;color:var(--coral);box-shadow:0 12px 34px rgba(0,0,0,.18);font-weight:700}
+.cta .btn-white:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.22)}
+
+footer{padding:56px 0 38px;background:var(--surface);border-top:1px solid var(--border)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:42px}
+.foot-grid p{font-size:13.5px;color:var(--text-muted);max-width:280px;margin-top:14px;line-height:1.6}
+.foot-col h4{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-bottom:14px;font-family:var(--body);font-weight:600}
+.foot-col a{display:block;font-size:14px;color:var(--text-muted);padding:5px 0}
+.foot-col a:hover{color:var(--coral)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--text-light);flex-wrap:wrap;gap:12px}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){
+  .hero-visual{height:320px}
+  .chat-card{left:0;width:240px;bottom:-16px}
+  .stat-float{right:0;top:-12px;padding:10px 14px}
+  .stat-float .num{font-size:22px}
+  .hero h1{font-size:32px}
+  .hero .lead{font-size:16px}
+  .sec{padding:64px 0}
+  .sec-head h2{font-size:28px}
+  .foot-grid{grid-template-columns:1fr !important}
+  .trust-logos{gap:16px 20px}
+  .trust-logos img{height:20px}
+  .crafted-photo{height:240px}
+  .craft-item{flex-direction:column;gap:10px}
+  .cta{padding:72px 0}
+  .cta h2{font-size:28px}
+  .faq-list{max-width:100%}
+}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHM62CH8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="/c/"><img src="../logo.png" alt="Sultan AI" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="#results">Hasil</a>
+      <a href="#features">Fitur</a>
+      <a href="#pricing">Harga</a>
+      <a href="#faq">FAQ</a>
+      <a href="/c/en/" style="font-size:12px;font-weight:700;color:var(--text-light)">EN</a>
+      <a href="https://sultan-agent-469903157097.asia-southeast2.run.app/admin/login" target="_blank">Login</a>
+      <a href="#lead-form" class="nav-cta sultan-cta" data-cta="nav-c">Konsultasi Gratis</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <h1>AI Chat yang <span class="accent">disesuaikan khusus</span> untuk bisnis Anda.</h1>
+      <p class="lead">Kami pelajari bisnis Anda secara mendalam, bangun AI yang sesuai, dan terus merawatnya seiring bisnis berkembang.</p>
+      <div class="hero-actions">
+        <a href="#lead-form" class="btn btn-coral sultan-cta" data-cta="hero-c">Konsultasi Gratis <span class="ti"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 18l6-6-6-6"/></svg></span></a>
+        <a href="#features" class="btn btn-outline">Lihat Fitur</a>
+      </div>
+      <p style="font-size:13px;color:var(--text-light);margin-top:10px">Setup gratis · Live dalam 5 hari</p>
+      <div class="hero-badge"><span class="ti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17 3.34a10 10 0 1 1-14.995 8.984L2 12l.005-.324A10 10 0 0 1 17 3.34zm-1.293 5.953a1 1 0 0 0-1.32-.083l-.094.083L11 12.585l-1.293-1.292-.094-.083a1 1 0 0 0-1.403 1.403l.083.094 2 2 .094.083a1 1 0 0 0 1.226 0l.094-.083 4-4 .083-.094a1 1 0 0 0-.083-1.32z"/></svg></span> Setup gratis oleh tim expert · Live dalam 3–5 hari</div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-photo">
+        <img src="../images/hero-phone.webp" alt="Sultan AI Dashboard" width="422" height="237" style="object-fit:contain;background:#f5f5f5">
+      </div>
+      <div class="stat-float"><div class="num">97.2%</div><div class="lbl">chat ditangani AI</div></div>
+      <div class="chat-card" id="chatMock">
+        <div class="chat-head"><span class="chat-dot"></span><span>Sultan AI · online</span></div>
+        <div style="height:180px;display:flex;flex-direction:column">
+          <div id="chatMessages" style="flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end"></div>
+          <div id="chatTimer" style="text-align:center;font-size:10px;color:var(--text-light);margin-top:6px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-in">
+    <span>Dipercaya bisnis di seluruh Indonesia</span>
+    <div class="trust-logos">
+      <img src="../images/clients/anda-reserva.webp" alt="Anda Reserva" loading="lazy">
+      <img src="../images/clients/pakam.webp" alt="Pakam" loading="lazy">
+      <img src="../images/clients/vg.webp" alt="VG" loading="lazy">
+      <img src="../images/clients/sinar-jaya.webp" alt="Sinar Jaya" loading="lazy">
+      <img src="../images/clients/wcn.webp" alt="WCN" loading="lazy">
+      <img src="../images/clients/onna.webp" alt="Onna" loading="lazy">
+      <img src="../images/clients/merapi.webp" alt="Merapi" loading="lazy">
+      <img src="../images/clients/eunoia.webp" alt="Eunoia" loading="lazy">
+      <img src="../images/clients/montreux.webp" alt="Montreux" loading="lazy">
+      <img src="../images/clients/biosphere.webp" alt="Biosphere" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<section class="sec results" id="results">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Real Results</span>
+      <h2>Kami senang melihat keberhasilan klien kami.</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="qcard reveal">
+        <div class="qmark">"</div>
+        <p class="qtext">Dulu kami cuma andalin app. Sekarang WhatsApp bawa revenue tambahan.</p>
+        <div class="qmetric">+Rp 300jt <small style="font-family:var(--body);font-size:13px;color:var(--text-light);font-weight:500">/ bulan</small></div>
+        <div class="qauthor"><div class="qav-text" style="background:#222;color:#fff">J</div><div><div class="nm">Jessica, Business Development</div><div class="co">Anda Reserva</div></div><img src="../images/anda-reserva-logo.webp" alt="" class="qlogo" loading="lazy"></div>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">"</div>
+        <p class="qtext">Kami berhasil kurangi 3 admin jadi 1 — Sultan AI handle sisanya 24/7.</p>
+        <div class="qmetric">3 admin → 1</div>
+        <div class="qauthor"><div class="qav-text" style="background:#222;color:#fff">JA</div><div><div class="nm">Julius Aldo, Head of Operations</div><div class="co">PT Partisi Kamar Mandi</div></div><img src="../images/clients/pakam.webp" alt="" class="qlogo" style="border-radius:3px" loading="lazy"></div>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">"</div>
+        <p class="qtext">100+ produk dengan alur unik. Tim Sultan AI benar-benar memahami proses kami — handle lebih baik dari admin ter-training.</p>
+        <div class="qmetric">100+ produk dikuasai AI</div>
+        <div class="qauthor"><div class="qav-text" style="background:#1a1a5e;color:#fff">A</div><div><div class="nm">Amitesh, Director</div><div class="co">WCN (Wahana Cipta Nuansa)</div></div><img src="../images/clients/wcn.webp" alt="" class="qlogo" style="border-radius:3px" loading="lazy"></div>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">"</div>
+        <p class="qtext">Ribuan produk dan admin kami harus cek inventaris untuk setiap pertanyaan. Tim Sultan AI meluangkan waktu untuk modernisasi bisnis tradisional kami.</p>
+        <div class="qmetric">Tradisional → Digital</div>
+        <div class="qauthor"><div class="qav-text" style="background:#222;color:#fff">SJ</div><div><div class="nm">Management Team</div><div class="co">Sinar Jaya Jakarta</div></div><img src="../images/clients/sinar-jaya.webp" alt="" class="qlogo" style="border-radius:3px" loading="lazy"></div>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">"</div>
+        <p class="qtext">Kami mau mulai pasang iklan tapi tahu tim kami belum siap handle banyak chat. Sultan AI siapkan chatbot kami duluan.</p>
+        <div class="qmetric">Siap scale dengan AI</div>
+        <div class="qauthor"><div class="qav-text" style="background:#8B6F4E;color:#fff">VG</div><div><div class="nm">Yulia, Manager</div><div class="co">VG Makeup Studio</div></div><img src="../images/clients/vg.webp" alt="" class="qlogo" loading="lazy"></div>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">"</div>
+        <p class="qtext">Tim sales kami masing-masing balas customer sendiri-sendiri — jawaban beda-beda. Sekarang saya bisa lihat percakapan setiap customer di satu dashboard.</p>
+        <div class="qmetric">Visibility & kontrol penuh</div>
+        <div class="qauthor"><div class="qav-text" style="background:#D32F2F;color:#fff">M</div><div><div class="nm">Management Team</div><div class="co">Merapi Cipta Karya</div></div><img src="../images/clients/merapi.webp" alt="" class="qlogo" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="crafted">
+  <div class="wrap crafted-row">
+    <div class="crafted-photo reveal">
+      <img src="../images/hero-phone.webp" alt="Sultan AI Dashboard" width="422" height="237" style="object-fit:contain;background:#f5f5f5">
+      <div class="tag"><span class="chat-dot"></span> Tim AI expert kami yang bangun</div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Tailored to your business</span>
+      <h2 style="font-size:36px;margin:14px 0 8px">Tim kami yang membangun, melatih, dan merawat AI Anda.</h2>
+      <p style="font-size:15px;color:var(--text-muted);margin-top:8px">Karena bisnis Anda layak lebih dari chatbot copy-paste.</p>
+      <div style="margin-top:18px">
+        <div class="craft-item"><div class="craft-num">01</div><div><h3>Dedicated Onboarding</h3><p>Kami bangun AI dari nol — pelajari produk, alur penjualan, dan cara Anda melayani customer. Bukan tools yang Anda setup sendiri lalu berharap hasilnya bagus.</p></div></div>
+        <div class="craft-item"><div class="craft-num">02</div><div><h3>Lifetime Maintenance</h3><p>Produk baru, perubahan harga, promo — kami yang update. Kami tidak hanya setup lalu pergi. Tim kami terus merawat dan memastikan AI Anda selalu optimal.</p></div></div>
+        <div class="craft-item"><div class="craft-num">03</div><div><h3>Scalable Quality</h3><p>Dilatih sekali, tidak pernah resign, konsisten 24/7. Siap menerima lonjakan chat saat Anda scale.</p></div></div>
+        <div class="craft-item"><div class="craft-num">04</div><div><h3>Built for Growth</h3><p>Kami mendukung persiapan untuk pertumbuhan bisnis Anda. AI siap menerima lonjakan chat — satu meeting, kami handle setup, training, dan launch.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="features" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2>Semua yang bisnis Anda butuhkan, dalam satu platform.</h2>
+    </div>
+    <div class="cap-grid reveal">
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><path d="M21 14l-3-3h-7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v10"/><path d="M14 15v2a1 1 0 0 1-1 1H6l-3 3V11a1 1 0 0 1 1-1h2"/></svg></span></div><h3>Omnichannel</h3><p>WhatsApp, Instagram DM & TikTok — satu dashboard.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m4 15 4-4a3 5 0 0 1 3 0l5 5"/><path d="m14 14 1-1a3 5 0 0 1 3 0l2 2"/></svg></span></div><h3>Multimedia Analysis</h3><p>Paham foto, video, voice note, dan iklan customer.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/></svg></span></div><h3>Auto Follow-Up</h3><p>Lead yang belum closing di-follow up otomatis.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16M8 15h.01M12 15h.01M16 15h.01"/></svg></span></div><h3>Auto Booking</h3><p>Jadwalkan meeting dari chat, terintegrasi Calendar.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-3-2-2 2-2-2-2 2-2-2-3 2"/><path d="M14 8h-4M14 12h-4"/></svg></span></div><h3>Payment Verification</h3><p>Verifikasi pembayaran otomatis, konfirmasi instan.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3V6a1 1 0 0 1 1-1h9v12m-4 0h6m4 0h2v-6h-8m0-5h5l3 5"/></svg></span></div><h3>Auto Cek Ongkir</h3><p>Cek ongkos kirim otomatis langsung dari chat.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="14" cy="15" r="2"/><path d="m10.16 10.62 2.34 2.88M15.088 13.328l2.837-4.586"/></svg></span></div><h3>CRM Dashboard</h3><p>Lihat perjalanan setiap customer dalam satu tampilan.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><path d="M18 8a3 3 0 0 1 0 6M10 8v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1"/><path d="M10 8 18 4v14l-8-4"/><path d="M7 20h1a2 2 0 0 0 2-2v-1"/></svg></span></div><h3>Broadcast Message</h3><p>Kirim pesan massal — promo, update, pengingat.</p></div>
+      <div class="cap"><div class="ico"><span class="ti"><svg viewBox="0 0 24 24"><path d="m7 12 5 5-1.5 1.5a3.54 3.54 0 1 1-5-5L7 12zM17 12l-5-5 1.5-1.5a3.54 3.54 0 1 1 5 5L17 12z"/><path d="m14.5 17.5 3 3M3.5 6.5l3 3M9 12l6 0"/></svg></span></div><h3>API Integration</h3><p>Integrasi inventory, ERP, atau sistem internal Anda.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Pricing</span>
+      <h2>Simpel, transparan.</h2>
+    </div>
+    <div class="price-grid">
+      <div class="pcard featured reveal">
+        <div class="pbadge">Terpopuler</div>
+        <div class="pname">Starter</div>
+        <div class="pprice">Rp 4.5jt<small> /bln</small></div>
+        <div class="pnote">Lebih murah dari gaji 1 CS</div>
+        <ul class="pfeat"><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>15.000 AI Balasan/bulan</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Omnichannel WA & Instagram</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>6 Agen Manusia</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Ads Tracking & CRM</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Setup oleh AI Expert</li></ul>
+        <a href="#lead-form" class="btn btn-coral sultan-cta" data-cta="starter-c">Konsultasi Sekarang</a>
+      </div>
+      <div class="pcard reveal" style="border-color:var(--green);box-shadow:none">
+        <div class="pbadge" style="background:var(--green)">Best Value</div>
+        <div class="pname">Growth</div>
+        <div class="pprice">Rp 6jt<small> /bln</small></div>
+        <div class="pnote">Lebih murah dari gaji 2 CS</div>
+        <ul class="pfeat"><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>30.000 AI Balasan/bulan</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Omnichannel WA, IG & TikTok</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>10 Agen Manusia</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Integrasi API Inventaris</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Ads Tracking & CRM</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Setup oleh AI Expert</li></ul>
+        <a href="#lead-form" class="btn btn-outline sultan-cta" data-cta="growth-c">Pilih Growth</a>
+      </div>
+      <div class="pcard reveal">
+        <div class="pname">Enterprise</div>
+        <div class="pprice">Custom</div>
+        <div class="pnote">Untuk volume tinggi</div>
+        <ul class="pfeat"><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Unlimited AI Balasan</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Unlimited Agen Manusia</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Custom API Integration</li><li><span class="ti" style="font-size:16px"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Dedicated Support</li></ul>
+        <a href="#lead-form" class="btn btn-outline sultan-cta" data-cta="enterprise-c">Hubungi Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Pertanyaan yang sering diajukan.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Apakah AI-nya bisa Bahasa Indonesia dan Inggris?</button><div class="faq-a"><p>Fasih keduanya — termasuk chat casual, slang, dan konteks bisnis lokal. Customer tidak sadar sedang chat dengan AI.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Berapa lama setup-nya?</button><div class="faq-a"><p>3-5 hari kerja. Tim kami yang handle semua — Anda tidak perlu setting apa-apa.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Bagaimana dengan bisnis yang kompleks?</button><div class="faq-a"><p>Justru keunggulan kami. Klien kami ada yang punya 1000+ produk dan alur yang sangat unik. Kami siap.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Kalau bisnis berubah, AI-nya diupdate?</button><div class="faq-a"><p>Ya. Kami terus merawat dan mengupdate AI Anda seiring bisnis berkembang. Tanpa biaya tambahan.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Bisa di-cancel kapan saja?</button><div class="faq-a"><p>Ya. Bulanan, tanpa kontrak. Tapi klien kami tidak pernah cancel.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-bg"></div>
+  <div class="wrap cta-in reveal">
+    <span class="eyebrow">Start Today</span>
+    <h2>Mari bangun AI terbaik untuk bisnis Anda.</h2>
+    <p>Free setup, live dalam 3–5 hari. Mulai closing 24/7 di semua channel.</p>
+    <a href="#lead-form" class="btn btn-white sultan-cta" data-cta="bottom-c">Konsultasi Gratis <span class="ti"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 18l6-6-6-6"/></svg></span></a>
+  </div>
+</section>
+
+
+<!-- ===== Embedded Lead Form ===== -->
+<style>
+#lead-form{padding:56px 0 72px;scroll-margin-top:80px}
+#lead-form .lf-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+#lead-form .lf-card{background:#FFFFFF;border:1px solid #E5E7EB;border-radius:20px;padding:40px 32px;box-shadow:0 4px 24px rgba(26,26,26,0.06)}
+#lead-form .lf-card h2{font-family:'Chillax','GeneralSans',sans-serif;line-height:1.1;letter-spacing:-0.03em;font-weight:500;font-size:clamp(22px,4vw,28px);color:#1A1A1A;margin-bottom:6px}
+#lead-form .lf-card h2 span{color:#FF6647}
+#lead-form .lf-sub{font-size:15px;color:#4B5563;margin-bottom:4px}
+#lead-form .lf-price{font-size:14px;color:#FF6647;font-weight:500;margin-bottom:24px}
+#lead-form .lf-field{margin-bottom:18px}
+#lead-form .lf-field label{display:block;font-size:13px;font-weight:500;color:#4B5563;margin-bottom:6px}
+#lead-form .lf-field input,#lead-form .lf-field select,#lead-form .lf-field textarea{width:100%;padding:14px 16px;background:#FFFFFF;border:1.5px solid #E5E7EB;border-radius:10px;color:#1A1A1A;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+#lead-form .lf-field input:focus,#lead-form .lf-field select:focus,#lead-form .lf-field textarea:focus{border-color:#FF6647;box-shadow:0 0 0 3px rgba(255,102,71,0.1)}
+#lead-form .lf-field input::placeholder,#lead-form .lf-field textarea::placeholder{color:#9CA3AF}
+#lead-form .lf-field select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+#lead-form .lf-field select option{background:#FFFFFF;color:#1A1A1A}
+#lead-form .lf-field textarea{resize:vertical;min-height:80px}
+#lead-form .lf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#lead-form .lf-submit{width:100%;padding:16px;background:#FF6647;color:#fff;font-size:16px;font-weight:600;font-family:inherit;border:none;border-radius:12px;cursor:pointer;transition:background .2s,transform .1s,box-shadow .2s;margin-top:8px;box-shadow:0 4px 16px rgba(255,102,71,0.25)}
+#lead-form .lf-submit:hover{background:#E85535;transform:translateY(-1px);box-shadow:0 4px 24px rgba(255,102,71,0.4)}
+#lead-form .lf-submit:active{transform:scale(0.98)}
+#lead-form .lf-submit:disabled{background:#D1D5DB;cursor:not-allowed;transform:none;box-shadow:none}
+#lead-form .lf-privacy{font-size:12px;color:#9CA3AF;text-align:center;margin-top:14px}
+#lead-form .lf-thankyou{display:none;text-align:center;padding:48px 0}
+#lead-form .lf-thankyou .lf-check{width:72px;height:72px;background:rgba(34,197,94,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;color:#22C55E}
+#lead-form .lf-thankyou h2{font-family:'Chillax','GeneralSans',sans-serif;font-weight:500;font-size:28px;color:#1A1A1A;margin-bottom:10px}
+#lead-form .lf-thankyou p{color:#4B5563;font-size:16px}
+@media(max-width:600px){#lead-form{padding:44px 0 60px}#lead-form .lf-row{grid-template-columns:1fr}#lead-form .lf-card{padding:28px 20px}#lead-form .lf-wrap{padding:0 16px}}
+</style>
+<section id="lead-form">
+  <div class="lf-wrap">
+    <div class="lf-card" id="lfCard">
+      <h2>Grow bisnis Anda, <span>tanpa tambah karyawan.</span></h2>
+      <p class="lf-sub">Tim kami akan hubungi via WhatsApp dalam 1&times;24 jam.</p>
+      <p class="lf-price">Mulai dari Rp 4.500.000/bulan</p>
+      <form id="lfForm" onsubmit="return lfSubmit(event)">
+        <div class="lf-row">
+          <div class="lf-field">
+            <label>Nama Anda *</label>
+            <input type="text" id="lf-name" placeholder="Budi Santoso" required>
+          </div>
+          <div class="lf-field">
+            <label>Nama Bisnis *</label>
+            <input type="text" id="lf-business" placeholder="Toko Maju Jaya" required>
+          </div>
+        </div>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label>Nomor WhatsApp *</label>
+            <input type="tel" id="lf-whatsapp" placeholder="08123456789" required>
+          </div>
+          <div class="lf-field">
+            <label>Industri Bisnis *</label>
+            <select id="lf-industry" required>
+              <option value="" disabled selected>Pilih industri...</option>
+              <option value="fnb">F&B / Restoran / Cafe</option>
+              <option value="retail">Retail / Online Shop</option>
+              <option value="beauty">Salon / Klinik Kecantikan</option>
+              <option value="health">Klinik / Kesehatan</option>
+              <option value="property">Property / Real Estate</option>
+              <option value="education">Pendidikan / Kursus</option>
+              <option value="travel">Travel / Hotel</option>
+              <option value="automotive">Otomotif</option>
+              <option value="service">Jasa Profesional</option>
+              <option value="other">Lainnya</option>
+            </select>
+          </div>
+        </div>
+        <div class="lf-field">
+          <label>Masalah utama Anda saat ini?</label>
+          <select id="lf-problem">
+            <option value="" disabled selected>Pilih masalah...</option>
+            <option value="slow-reply">Chat customer sering tidak terbalas</option>
+            <option value="no-followup">Tidak ada follow up setelah chat pertama</option>
+            <option value="cs-cost">Biaya CS terlalu tinggi</option>
+            <option value="scaling">Bisnis growing tapi CS tidak bisa scale</option>
+            <option value="after-hours">Kehilangan customer di luar jam kerja</option>
+            <option value="other">Lainnya</option>
+          </select>
+        </div>
+        <div class="lf-field">
+          <label>Ada yang ingin ditanyakan? (opsional)</label>
+          <textarea id="lf-notes" placeholder="Ceritakan kebutuhan atau pertanyaan Anda..."></textarea>
+        </div>
+        <button type="submit" class="lf-submit" id="lfSubmitBtn">Kirim &amp; Jadwalkan Konsultasi</button>
+        <p class="lf-privacy">Data Anda aman. Kami hanya menghubungi via WhatsApp, tanpa komitmen.</p>
+      </form>
+    </div>
+    <div class="lf-thankyou" id="lfThankYou">
+      <div class="lf-check">&#10003;</div>
+      <h2>Terima kasih!</h2>
+      <p>Tim Sultan AI akan menghubungi Anda via WhatsApp dalam 1&times;24 jam.</p>
+    </div>
+  </div>
+</section>
+<script>
+function lfSubmit(e){
+  e.preventDefault();
+  var btn=document.getElementById('lfSubmitBtn');
+  btn.disabled=true;btn.textContent='Mengirim...';
+  function cookie(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]+)'));return m?decodeURIComponent(m[1]):'';}
+  var data={
+    name:document.getElementById('lf-name').value,
+    business:document.getElementById('lf-business').value,
+    whatsapp:document.getElementById('lf-whatsapp').value,
+    industry:document.getElementById('lf-industry').value,
+    problem:document.getElementById('lf-problem').value||'',
+    notes:document.getElementById('lf-notes').value||'',
+    source:'lead-form',
+    page:window.location.href,
+    gclid:(window.SultanTracker&&SultanTracker.getGclid)?SultanTracker.getGclid():cookie('sultan_gclid'),
+    refCode:cookie('_sa_ref_code'),
+    timestamp:new Date().toISOString()
+  };
+  var done=false;
+  function goThanks(){
+    if(done)return;done=true;
+    window.location.href='/terima-kasih'+(data.industry?('?industry='+encodeURIComponent(data.industry)):'');
+  }
+  fetch('https://script.google.com/macros/s/AKfycbwHVpRF6gmVrc03JBZAFXopoVtWmANfj9XM9dky3MOwSu1IN2C8lZlRvxpzuCbl3XjG0w/exec',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  fetch('https://asia-southeast2-sultan-ai-483111.cloudfunctions.net/leadFormSubmit',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+    .then(function(){goThanks();}).catch(function(){goThanks();});
+  setTimeout(goThanks,2500);
+  return false;
+}
+</script>
+<!-- ===== /Embedded Lead Form ===== -->
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a href="/c/"><img src="../logo.png" alt="Sultan AI" style="height:28px"></a><p>Omnichannel AI yang closing deals 24/7 untuk bisnis Indonesia. WhatsApp & Instagram, satu platform.</p></div>
+      <div class="foot-col"><h4>Produk</h4><a href="#features">Fitur</a><a href="#results">Hasil Klien</a><a href="#pricing">Harga</a><a href="#faq">FAQ</a></div>
+      <div class="foot-col"><h4>Perusahaan</h4><a href="/c/en/">English</a></div>
+      <div class="foot-col"><h4>Kontak</h4><a href="https://wa.me/6281994565275?text=Hi%20Sultan%20AI" target="_blank" class="sultan-cta" data-cta="footer-wa-c">+62 819-9456-5275</a><a href="mailto:eric@sultanai.id">eric@sultanai.id</a><a href="https://instagram.com/heysultan.ai" target="_blank">@heysultan.ai</a></div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 Sultan AI. All rights reserved.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div>
+  </div>
+</footer>
+
+<script>
+// Chat animation
+(function(){
+  var c=document.getElementById('chatMessages'),t=document.getElementById('chatTimer');
+  if(!c)return;
+  var convos=[
+    [{type:'in',text:'kak besok masih bs pijat?'},{type:'out',text:'Bisa! Mau di jam berapa?'},{type:'in',text:'jam 2 siang ada slot ga?'},{type:'out',text:'Jam 2 siang available! Mau booking full body massage 60 menit? ✨'},{type:'in',text:'iya kak booking ya'},{type:'out',text:'Siap! Sudah terbooking besok jam 14:00 ✅'}],
+    [{type:'in',text:'harga facial berapa ya?'},{type:'out',text:'Facial treatment mulai Rp 250.000 ✨\nBrightening atau deep cleansing?'},{type:'in',text:'brightening dong'},{type:'out',text:'Slot terdekat:\n• Besok jam 10:00\n• Besok jam 15:00'},{type:'in',text:'jam 10 pagi aja'},{type:'out',text:'Booking confirmed ✅\nBesok jam 10:00 - Brightening Facial'}],
+    [{type:'in',text:'ada promo gak bulan ini?'},{type:'out',text:'Ada! 🌟 Facial + Massage combo diskon 20%\nMau langsung booking?'},{type:'in',text:'combo boleh, sabtu bs?'},{type:'out',text:'Sabtu available! Combo 90 menit:\nHarga: Rp 480.000 (hemat Rp 120.000)'},{type:'in',text:'jam 1 siang ya'},{type:'out',text:'Booked! ✅ Sabtu jam 13:00\nSampai ketemu kak! 💆‍♀️'}]
+  ];
+  var ci=0;
+  function add(type,text){var el=document.createElement('div');el.style.cssText='padding:7px 11px;border-radius:11px;font-size:11px;line-height:1.45;max-width:85%;margin-bottom:5px;opacity:0;transform:translateY(8px);transition:all .3s';
+    if(type==='in'){el.style.background='var(--surface-2)';el.style.border='1px solid var(--border)';el.style.borderBottomLeftRadius='3px'}
+    else{el.style.background='rgba(17,106,248,0.85)';el.style.color='#fff';el.style.marginLeft='auto';el.style.borderBottomRightRadius='3px'}
+    el.innerHTML=text.replace(/\n/g,'<br>');c.appendChild(el);requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='none'})})}
+  function play(msgs){c.innerHTML='';t.innerHTML='';var d=400;msgs.forEach(function(m){setTimeout(function(){add(m.type,m.text)},d);d+=1200});
+    setTimeout(function(){t.innerHTML='Sultan AI replied in <strong style="color:var(--coral)">'+(3+Math.floor(Math.random()*5))+' seconds</strong>';},d+200);
+    setTimeout(function(){ci=(ci+1)%convos.length;play(convos[ci])},d+3500)}
+  var obs=new IntersectionObserver(function(e){if(e[0].isIntersecting){obs.disconnect();play(convos[0])}},{threshold:.3});
+  obs.observe(document.getElementById('chatMock'));
+})();
+
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*0.08)+'s';io.observe(el)});
+document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){var a=this.nextElementSibling;var o=this.classList.toggle('open');a.style.maxHeight=o?a.scrollHeight+'px':'0'})});
+</script>
+<script>
+(function(){var p=new URLSearchParams(window.location.search).get('ref');if(p){var d=new Date();d.setTime(d.getTime()+90*24*60*60*1000);document.cookie='_sa_ref_code='+encodeURIComponent(p.toLowerCase())+'; expires='+d.toUTCString()+'; path=/; SameSite=Lax'}var m=document.cookie.match(/_sa_ref_code=([^;]+)/);if(!m)return;var code=decodeURIComponent(m[1]).toUpperCase();var tag=encodeURIComponent(' [REF-'+code+']');document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){var h=a.href;if(h.indexOf('text=')!==-1)a.href=h+tag;else if(h.indexOf('?')!==-1)a.href=h+'&text='+tag;else a.href=h+'?text='+tag})})();
+</script>
+<script src="../sultan-tracker.js"></script>
+
+</body>
+</html>
+
+
+
+`, {
+      headers: {
+        "content-type": "text/html;charset=UTF-8"
+      }
+    });
+  }
+};
