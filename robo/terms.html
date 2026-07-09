@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Terms of Service — Sultan AI</title>
+    <meta name="description" content="Terms of Service for Sultan AI, an omnichannel AI chatbot SaaS platform by PT Akshaya Mulia Asha.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Chillax';
+            src: url('fonts/Chillax-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --coral: #FF6647;
+            --coral-hover: #E85535;
+            --blue: #116AF8;
+            --text: #1A1A1A;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --surface: #FFFFFF;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --max-w: 1120px;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased;
+            background: #FFFFFF;
+        }
+
+        h1, h2, h3 { font-family: 'Chillax', 'Plus Jakarta Sans', sans-serif; line-height: 1.15; letter-spacing: -0.02em; font-weight: 500; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(255,255,255,0.88); backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0 24px;
+        }
+        .navbar.scrolled { box-shadow: var(--shadow-sm); }
+        .navbar-inner {
+            max-width: var(--max-w); margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; height: 64px;
+        }
+        .logo { display: flex; align-items: center; }
+        .logo img { height: 28px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { font-size: 0.9375rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta { color: var(--coral) !important; font-weight: 600 !important; }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 12px; -webkit-tap-highlight-color: transparent; }
+        .mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 5px 0; }
+
+        /* ===== CONTENT ===== */
+        .terms-hero {
+            padding: 120px 24px 48px;
+            text-align: center;
+            background: linear-gradient(135deg, #FFFFFF 0%, #EEF2FB 40%, #E3E9F7 100%);
+        }
+        .terms-hero h1 {
+            font-size: clamp(2rem, 4.5vw, 2.75rem);
+            margin-bottom: 12px;
+        }
+        .terms-hero .updated {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+        }
+
+        .terms-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        .terms-body h2 {
+            font-size: 1.375rem;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terms-body h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .terms-body p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.75;
+            font-size: 0.9375rem;
+        }
+
+        .terms-body ul, .terms-body ol {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            padding-left: 24px;
+            font-size: 0.9375rem;
+            line-height: 1.75;
+        }
+
+        .terms-body li {
+            margin-bottom: 8px;
+        }
+
+        .terms-body strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .terms-body a {
+            color: var(--coral);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .terms-body a:hover {
+            color: var(--coral-hover);
+        }
+
+        .terms-nav {
+            background: #F9FAFB;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-bottom: 48px;
+        }
+        .terms-nav p {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .terms-nav ol {
+            padding-left: 20px;
+            margin-bottom: 0;
+            columns: 2;
+            column-gap: 32px;
+        }
+        .terms-nav li {
+            font-size: 0.875rem;
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+        .terms-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .terms-nav a:hover {
+            color: var(--coral);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer { padding: 48px 0 32px; border-top: 1px solid var(--border); background: white; }
+        .footer-container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+        .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+        .footer-brand p { font-size: 0.8125rem; color: var(--text-muted); margin-top: 12px; line-height: 1.6; }
+        .footer-col h4 { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 16px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { font-size: 0.875rem; color: var(--text-muted); transition: color 0.2s; text-decoration: none; }
+        .footer-col a:hover { color: var(--coral); }
+        .footer-bottom {
+            margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-light);
+        }
+        .footer-bottom a { color: var(--text-light); margin-left: 16px; text-decoration: none; }
+        .footer-bottom a:hover { color: var(--coral); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0;
+                background: white; border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 16px;
+                box-shadow: var(--shadow-md);
+            }
+            .terms-hero { padding: 100px 20px 36px; }
+            .terms-body { padding: 36px 20px 64px; }
+            .terms-nav ol { columns: 1; }
+            .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 8px; }
+        }
+
+        @media (max-width: 480px) {
+            .terms-hero h1 { font-size: 1.75rem; }
+            .terms-body h2 { font-size: 1.1875rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+        <a href="/" class="logo"><img src="logo.png" alt="Sultan AI"></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="https://wa.me/6281994565275?text=Hi%20Sultan%20AI%2C%20saya%20tertarik%20untuk%20konsultasi!" target="_blank" class="nav-cta">Consult Now</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo"><img src="logo.png" alt="Sultan AI"></div>
+                <p>Omnichannel AI chatbot that closes deals 24/7 for Indonesian businesses. WhatsApp, Instagram, TikTok, Shopee — one platform.</p>
+            </div>
+            <div class="footer-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+            <div class="footer-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul><li><a href="https://wa.me/6281994565275" target="_blank">+62 819-9456-5275</a></li><li><a href="https://mail.google.com/mail/?view=cm&to=eric@sultanai.id">eric@sultanai.id</a></li><li><a href="https://instagram.com/sultanai.id" target="_blank">@sultanai.id</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 PT Akshaya Mulia Asha. All rights reserved.</span>
+            <div><a href="/terms.html">Terms of Service</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10));
+    document.getElementById('mobileToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+</script>
+<script>
+(function(){
+    var p = new URLSearchParams(window.location.search).get('ref');
+    if (p) {
+        var d = new Date(); d.setTime(d.getTime() + 90*24*60*60*1000);
+        document.cookie = '_sa_ref_code=' + encodeURIComponent(p.toLowerCase()) + '; expires=' + d.toUTCString() + '; path=/; SameSite=Lax';
+    }
+    var m = document.cookie.match(/_sa_ref_code=([^;]+)/);
+    if (!m) return;
+    var code = decodeURIComponent(m[1]).toUpperCase();
+    var tag = encodeURIComponent(' [REF-' + code + ']');
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){
+        var h = a.href;
+        if (h.indexOf('text=') !== -1) a.href = h + tag;
+        else if (h.indexOf('?') !== -1) a.href = h + '&text=' + tag;
+        else a.href = h + '?text=' + tag;
+    });
+})();
+</script>
+
+</body>
+</html>
